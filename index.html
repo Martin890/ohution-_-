@@ -1,0 +1,110 @@
+<style type="text/css">
+@media only screen and (max-width: 360px) {
+  #friedsGroup {
+    grid-template-columns:1fr!important;
+  }
+
+}
+#MySignature{
+  display:none!important;
+}
+
+#app a,#card a{
+  color:inherit;
+  display:block!important;
+  height:fit-content;
+}
+
+#friedsGroup {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-gap:20px;
+}
+
+.friends {
+  /*margin-bottom: 20px;*/
+  width: 100%;
+  display: inline-grid;
+}
+
+.friendCard {
+  background-color: var(--BlockColor);
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid rgba(120, 130, 140, 0.13);
+}
+
+.friendCard:hover {
+  box-shadow: 6px 11px 41px -28px #a99de7;
+}
+
+.friendCard img {
+  width: 70px !important;
+  height: 70px !important;
+  float: left;
+  margin-right: 20px !important;
+}
+
+.friendCard .name {
+  margin: 0 0 10px 0 !important;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.friendCard .sign {
+  margin: 0 !important;
+  font-size: 16px;
+  color: var(--TextColor2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  /*white-space: nowrap;*/
+}
+</style>
+
+
+
+### 友情链接
+<div id="app">
+<div id="friedsGroup">
+<div class="friends" v-for="friend in friends">
+
+
+<div class="friendCard">
+<a :href="friend.blogUrl" target="_blank" class="item">
+<img :src="friend.avatarUrl" alt="" />
+<div class="info">
+<p class="name">{{friend.blogName}}</p>
+<p class="sign">{{friend.blogSign}}</p>
+</div>
+</a>
+</div>
+</div>
+
+</div>
+</div>
+
+<textarea title="js">
+new Vue({
+  el: '#app',
+  data: {
+    friends: [
+    {
+      blogName:'YJLAugus',
+      blogUrl:'https://www.cnblogs.com/yjlaugus/',
+      avatarUrl: 'https://pic.cnblogs.com/avatar/1176586/20190808204417.png',
+      blogSign: '尽长安'
+    },
+    ]
+  }
+})
+</textarea>
+
+### 申请友链
+| 字段名    | 字段内容 | 示例                                                      |
+| --------- | -------- | --------------------------------------------------------- |
+| blogName  | 博客昵称 | GShang                                                    |
+| blogUrl   | 博客地址 | https://www.cnblogs.com/gshang/                           |
+| avatarUrl | 博客头像 | https://pic.cnblogs.com/avatar/1489774/20190708183140.png |
+| blogSign  | 个性签名 | Stay hungry,Stay foolish.                                 |
+
